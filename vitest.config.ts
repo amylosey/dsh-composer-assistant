@@ -1,2 +1,12 @@
 import { defineConfig } from 'vitest/config'
 export default defineConfig({ test: { include: ['tests/**/*.test.{ts,tsx}'], exclude: ['**/._*'], environment: 'node', testTimeout: 15000, restoreMocks: true } })
+export default defineConfig({
+  test: {
+    include: ['tests/**/*.test.{ts,tsx}'],
+    exclude: ['**/._*'],
+    environment: 'node',
+    testTimeout: 15000,
+    restoreMocks: true,
+    setupFiles: ['tests/support/setup-storage.ts'],   // ← 新增
+  },
+})
